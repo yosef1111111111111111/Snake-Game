@@ -1,91 +1,173 @@
 # Snake-Game
 
-Denne kode er et Python-program, der implementerer et simpelt Snake-spil ved hjælp af Pygame-biblioteket. Spillet består af en slange, som spilleren styrer, og målet er at spise den røde mad, samtidig med at man undgår kollisioner med slangen's egen krop og spillets grænser. Her er en gennemgang af koden:
 
-Import af biblioteker:
+## Projektinformation
 
-Programmet starter med at importere de nødvendige biblioteker: pygame, sys, og random. pygame bruges til at oprette spillet, håndtere grafik og brugerinput.
-Initialisering af Pygame:
+- **Navn:** [Yosef, Rashaath, Malthe]
+- **Klasse:** [2.P]
+- **Årgang:** [2.G]
+- **Udviklingsmiljø:** [Visual Studio Code]
+- **Programmeringssprog:** Python
+- **Antal tegn:** [2920]
 
-Funktionen pygame.init() kaldes for at initialisere Pygame-biblioteket.
-Konstanter:
+## Beskrivelse
 
-Adskillige konstanter er defineret for at konfigurere spillets parametre:
-WIDTH og HEIGHT repræsenterer dimensionerne af spilvinduet (400x400 pixels).
-GRID_SIZE er størrelsen af hver gittercelle, hvor slangen og maden placeres.
-GRID_WIDTH og GRID_HEIGHT beregnes baseret på vinduesdimensionerne og gitterstørrelsen.
-Farver defineres ved hjælp af RGB-værdier: WHITE (baggrund), GREEN (slangen) og RED (mad).
-SNAKE_SPEED sætter hastigheden for slangens bevægelse.
-Initialisering af skærmen:
+Dette projekt er en Python-implementering af det klassiske Snake-spil ved hjælp af Pygame-biblioteket. Spillet giver spilleren kontrol over en slange, der skal indsamle mad og undgå kollisioner for at opnå en høj score.
 
-Spilvinduet oprettes ved hjælp af pygame.display.set_mode() med den angivne bredde og højde, og titlen sættes til "Snake Game."
-Initialisering af slangen og maden:
+## Funktionsbeskrivelse
 
-Slangen starter i midten af gitteret, og dens begyndelsesretning er indstillet til stillestående.
-Maden placeres på et tilfældigt sted inden for gitteret.
-Spilsløjfe:
+### Skærmlayout
 
-Hovedspilsløkken kører, indtil flaget game_over er indstillet til True.
-Inden for løkken kontrolleres brugerinput for at styre slangens retning ved hjælp af piletasterne.
-Slangens bevægelse simuleres ved at opdatere dens position.
-Kollision detekteres for at kontrollere, om slangen har spist maden eller om den er stødt mod væggene eller sig selv.
-Spilskærmen ryddes, og slangen og maden tegnes på skærmen.
-Skærmen opdateres ved hjælp af pygame.display.flip().
-Spillets hastighed kontrolleres med clock.tick(SNAKE_SPEED).
-Spilslut:
+Spillet kører i et rektangulært vindue med dimensioner på 400x400 pixels. Slangen og maden vises som firkantede segmenter, og spillet viser en "Game Over" besked ved spilafslutning.
 
-Hvis spillet er slut, vises en "Game Over" besked i midten af skærmen.
-Vent og afslut:
+### Indtastningsmuligheder
 
-Programmet venter i 2 sekunder efter spillet er slut.
-Efter ventetiden lukkes Pygame, og programmet afsluttes.
-Sammenfattende opretter denne kode et simpelt Snake-spil ved hjælp af Pygame, hvor spilleren styrer en slange for at spise mad og forsøger at undgå kollisioner med væggene eller slangens egen krop. Spilsløjfen håndterer brugerinput, opdaterer spiltilstanden og tegner spillet på skærmen.
+Spilleren kan styre slangens bevægelse ved hjælp af følgende tastaturtaster:
+- Piletast op: Bevæg slangen opad.
+- Piletast ned: Bevæg slangen nedad.
+- Piletast venstre: Bevæg slangen til venstre.
+- Piletast højre: Bevæg slangen til højre.
 
+### Funktionalitet
 
+- Spillet begynder med en enkelt celle i midten af gitteret som slangens startposition.
+- Maden placeres tilfældigt et sted inden for gitteret.
+- Spilleren styrer slangens retning ved hjælp af tastaturinput.
+- Slangen bevæger sig og øger sin længde, når den spiser maden.
+- Spillet afsluttes, hvis slangen kolliderer med væggene eller sin egen krop.
+- Spillet viser en "Game Over" besked og tillader spilleren at fortsætte eller afslutte spillet.
 
+## Dokumentation
 
-Denne Python-kode implementerer et klassisk Snake-spil ved hjælp af Pygame, som er et populært bibliotek til at oprette spil i Python. Spillet giver dig mulighed for at styre en slange, der bevæger sig rundt på et gitter og forsøger at indsamle mad, samtidig med at den undgår at kollidere med væggene og sin egen krop.
+### Overordnet beskrivelse af programmet
 
-Initialisering og Konstanter:
-Koden begynder med at initialisere Pygame-biblioteket og definere en række konstanter. Disse konstanter inkluderer spilvinduets dimensioner (400x400 pixels), størrelsen af hver celle i gitteret, farvekoderne for baggrund, slange og mad, samt slangens bevægelseshastighed.
+Dette program er en Pygame-implementering af Snake-spillet. Det bruger Pygame-biblioteket til at håndtere spilgrafik og brugerinput. Koden omfatter en hovedspilsløkke, der styrer spillogikken og opdaterer skærmbilledet i realtid.
 
-Initialisering af Spilvinduet:
-Spilvinduet oprettes ved hjælp af pygame.display.set_mode()-funktionen med de tidligere definerede dimensioner, og vinduets titel angives som "Snake Game."
+### Detaljeret dokumentation
 
-Initialisering af Slang og Mad:
-Spillet starter med en enkelt celle i midten af gitteret som slangens startposition, og slangens bevægelsesretning er indstillet til at være stillestående. Maden placeres tilfældigt et sted inden for gitteret.
+- **Hovedspilsløkke:** Hovedspilsløkken styrer spillogikken og opdaterer spillet i realtid. Den inkluderer brugerinputhåndtering, bevægelse af slangen, kollisionstjek og opdatering af spilgrafik.
 
-Hovedspilsløjfe:
-Spillet kører i en hovedsløjfe, der gentages, indtil game_over-flaget er sandt. Inden for denne sløjfe behandles brugerinput, så spilleren kan styre slangens retning ved hjælp af piletasterne.
+- **Brugerinput:** Spillerens tastaturinput overvåges ved hjælp af Pygame's event-håndtering. Piletasterne bruges til at ændre slangens retning.
 
-Slangens bevægelse simuleres ved at opdatere dens position. Hvis slangen spiser maden, genereres ny mad på en tilfældig placering, og slangens længde øges. Hvis slangen kolliderer med væggene eller sin egen krop, afsluttes spillet ved at indstille game_over til sandt.
+- **Slangens bevægelse:** Slangen bevæger sig ved at tilføje et nyt hovedsegment til dens aktuelle position baseret på den aktuelle retning.
 
-Grafik og Opdatering:
-Spilvinduet ryddes ved at udfylde det med den hvide baggrundsfarve. Derefter tegnes slangens segmenter og maden på skærmen. Spilvinduet opdateres ved hjælp af pygame.display.flip() for at vise de seneste ændringer.
+- **Kollisionstjek:** Der udføres forskellige kollisionstjek for at afgøre, om spillet skal afsluttes. Koden kontrollerer, om slangen har spist maden ved at sammenligne slangens hovedposition med madens position. Der tjekkes også for kollision med spillets grænser og om slangen kolliderer med sin egen krop.
 
-Spilslut:
-Hvis spillet slutter, vises en "Game Over" besked midt på skærmen ved hjælp af Pygame's tekstfunktioner.
+## Udviklingsproces
 
-Afslutning:
-Efter en kort ventetid på 2 sekunder lukkes Pygame, og programmet afsluttes.
+I udviklingsprocessen begyndte jeg med at implementere de grundlæggende spilfunktioner, herunder slangens bevægelse, madgenerering og kollisionstjek. Jeg brugte Git til versionsstyring og lavede flere commits for at spore ændringer og gemme forskellige udviklingsstadier. Jeg skrev også pseudokode og flowcharts for at planlægge koden og dens struktur.
 
-Dette Snake-spil er et sjovt eksempel på, hvordan man kan oprette et simpelt spil ved hjælp af Pygame i Python. Spilleren kan nyde at styre slangens bevægelse, samle mad og forsøge at opnå den højeste score uden at kollidere med forhindringerne.
+## Commit-Historie
+
+- **Første commit:** Oprettelse af projektets grundstruktur og README-fil.
+- **Anden commit:** Implementering af grundlæggende spilgrafik og slangens bevægelse.
+- **Tredje commit:** Tilføjelse af madgenerering og kollisionstjek.
+- **Fjerde commit:** Implementering af "Game Over" -besked og spilafslutning.
+- **Femte commit:** Finpudsning af koden og dokumentationen.
+- **Sidste commit:** Endelig gennemgang og klargøring til publicering.
+
+Dette README-dokument giver en detaljeret forståelse af projektet og dets udviklingshistorie. For at få mere detaljeret information om koden og dens udviklingsproces, kan du besøge projektets GitHub-repositorium.
 
 
-Hovedspilsløjfen:
-Hovedspilsløjfen er hjertet i spillet. Den køres kontinuerligt og styrer spillets logik. Inden for denne sløjfe sker følgende:
 
-Brugerinputhåndtering: Koden overvåger brugerens input ved hjælp af Pygame's pygame.event.get(). Hvis spilleren trykker på en piletast, ændres slangens retning i overensstemmelse hermed. Dette giver spilleren kontrol over, hvilken retning slangen bevæger sig i.
 
-Slangens bevægelse: Slangens position opdateres ved at tilføje et nyt hovedsegment til dens aktuelle position baseret på den aktuelle retning. Dette simulerer slangens bevægelse.
+    import pygame
+    import sys
+    import random
 
-Kollisionstjek: Der udføres forskellige kollisionstjek for at afgøre, om spillet skal afsluttes. Koden kontrollerer, om slangen har spist maden ved at sammenligne slangens hovedposition med madens position. Hvis dette er tilfældet, genereres ny mad, og slangens længde øges. Koden tjekker også for kollision med spillets grænser og om slangen kolliderer med sin egen krop. Hvis nogen af disse betingelser er opfyldt, indstilles game_over-flaget til sandt, og spillet afsluttes.
+    # Initialize Pygame
+    pygame.init()
 
-Opdatering af spilgrafik: Efter at have opdateret spiltilstanden ryddes skærmen og tegnes på ny. Slangens segmenter og maden tegnes på skærmen ved hjælp af pygame.draw.rect(). Dette giver spilleren visuel feedback om spiltilstanden.
+    # Constants
+    WIDTH, HEIGHT = 400, 400
+    GRID_SIZE = 20
+    GRID_WIDTH = WIDTH // GRID_SIZE
+    GRID_HEIGHT = HEIGHT // GRID_SIZE
+    WHITE = (255, 255, 255)
+    GREEN = (0, 255, 0)
+    RED = (255, 0, 0)
+    SNAKE_SPEED = 10
 
-Spilhastighedskontrol: clock.tick(SNAKE_SPEED) bruges til at regulere spillets hastighed. Dette sikrer, at spillet ikke kører for hurtigt eller for langsomt, uanset hvor kraftfuld computeren er.
+    # Initialize the screen
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption("Snake Game")
 
-Spilafslutning:
-Når spillet er slut, vises en "Game Over"-besked midt på skærmen ved hjælp af Pygame's tekstfunktioner. Spilleren får derefter en kort pause på 2 sekunder til at se beskeden, før Pygame lukkes, og programmet afsluttes.
+    # Initialize the snake
+    snake = [(GRID_WIDTH // 2, GRID_HEIGHT // 2)]
+    snake_direction = (0, 0)
 
-Dette Snake-spil er et godt eksempel på et simpelt spilprojekt, der bruger Pygame til at håndtere grafik og spillogik. Det er en sjov måde at lære om spiludvikling og programmering i Python på. Spillet kan også udvides med ekstra funktioner som high score-tracker, lydeffekter og mere avanceret spillogik for at gøre det endnu mere underholdende.
+    # Initialize the food
+    food = (random.randint(0, GRID_WIDTH - 1), random.randint(0, GRID_HEIGHT - 1))
+
+    # Game over flag
+    game_over = False
+
+    # Game loop
+    clock = pygame.time.Clock()
+
+    while not game_over:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP and snake_direction != (0, 1):
+                    snake_direction = (0, -1)
+                elif event.key == pygame.K_DOWN and snake_direction != (0, -1):
+                    snake_direction = (0, 1)
+                elif event.key == pygame.K_LEFT and snake_direction != (1, 0):
+                    snake_direction = (-1, 0)
+                elif event.key == pygame.K_RIGHT and snake_direction != (-1, 0):
+                    snake_direction = (1, 0)
+
+        # Move the snake
+        new_head = (snake[0][0] + snake_direction[0], snake[0][1] + snake_direction[1])
+        snake.insert(0, new_head)
+
+        # Check for collision with food
+        if snake[0] == food:
+            food = (random.randint(0, GRID_WIDTH - 1), random.randint(0, GRID_HEIGHT - 1))
+        else:
+            snake.pop()
+
+        # Check for collision with walls
+        if (
+            snake[0][0] < 0
+            or snake[0][0] >= GRID_WIDTH
+            or snake[0][1] < 0
+            or snake[0][1] >= GRID_HEIGHT
+        ):
+            game_over = True
+
+        # Check for collision with itself
+        if len(snake) > 1 and snake[0] in snake[1:]:
+            game_over = True
+
+        # Clear the screen
+        screen.fill(WHITE)
+
+        # Draw the snake
+        for segment in snake:
+            pygame.draw.rect(screen, GREEN, (segment[0] * GRID_SIZE, segment[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE))
+
+        # Draw the food
+        pygame.draw.rect(screen, RED, (food[0] * GRID_SIZE, food[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE))
+
+        # Update the display
+        pygame.display.flip()
+
+        # Control game speed
+        clock.tick(SNAKE_SPEED)
+
+    # Game over message
+    font = pygame.font.Font(None, 36)
+    game_over_text = font.render("Game Over", True, (0, 0, 0))
+    game_over_rect = game_over_text.get_rect(center=(WIDTH // 2, HEIGHT // 2))
+    screen.blit(game_over_text, game_over_rect)
+    pygame.display.flip()
+
+    # Wait for a moment before closing the game
+    pygame.time.wait(2000)
+
+    pygame.quit()
+    sys.exit()
